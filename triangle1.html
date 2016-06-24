@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Right Angled Triangle</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>My Right Angled Triangle 1</header>
+	
+    <canvas id="canvas" width="300" height="300"></canvas>
+	<header>Tim Drion MD1A</header>
+    
+    <script src="utils.js"></script>
+    <script src="triangle.js"></script>
+    <script>
+    window.onload = function () {
+		  var canvas = document.getElementById('canvas');
+          context = canvas.getContext('2d');
+          
+          
+		  triangle1 = new Triangle(); // new instance 
+          triangle1.colorFill = "Blue";
+		  triangle2 = new Triangle(); // new instance 
+          triangle2.colorFill = "Red";
+		  
+	
+		  (function drawFrame () {
+			 window.requestAnimationFrame(drawFrame, canvas);
+			 context.clearRect(0, 0, canvas.width, canvas.height);
+			 triangle1.xLeft = canvas.width / 2; // fixed point triangle
+			 triangle1.yLeft = canvas.height / 2; // fixed point triangle
+			 triangle1.x = canvas.width / 2 + 100;
+			 triangle1.y = canvas.width / 2 - 100;
+			 triangle1.draw(context);
+             triangle2.xLeft = canvas.width / 2; // fixed point triangle
+			 triangle2.yLeft = canvas.height / 2; // fixed point triangle
+			 triangle2.x = canvas.width / 2 + -100;
+			 triangle2.y = canvas.width / 2 - -100;
+			 triangle2.draw(context);
+		  }());
+    };
+	</script>
+	
+  </body>
+</html>

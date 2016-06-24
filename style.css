@@ -1,0 +1,11 @@
+
+body {
+  background-color: #000;
+  font-family: "courier", monospace;
+  font-size: large;
+  color: #ffff00;
+  text-align: center;
+}
+#canvas {
+  background-color: gray;
+}

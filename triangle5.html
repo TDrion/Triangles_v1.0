@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Right Angled Triangle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>My Right Angled Triangle 5</header>
+
+<canvas id="canvas" width="300" height="300"></canvas>
+<header>Tim Drion MD1A</header>
+
+<script src="utils.js"></script>
+<script src="triangle.js"></script>
+<script>
+    window.onload = function () {
+        var speed = 11;
+        var canvas = document.getElementById('canvas');
+        var triangle1 = [];
+        context = canvas.getContext('2d');
+
+        mouse = utils.captureMouse(canvas);
+
+
+        triangle1.colorFill = "Blue";
+
+        var posX = 0;
+        var posY = 0;
+
+        (function drawFrame () {
+            window.requestAnimationFrame(drawFrame, canvas);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+            if (posX < canvas.width && posY <=0)
+            {
+                posX += speed;
+                triangle1.colorFill = '#0000ff';
+            }
+            else if (posY < canvas.height && posX >= canvas.width)
+            {
+                posY += speed;
+                triangle1.colorFill = '#ff0000';
+            }
+            else if (posY > canvas.height - 1 && posX > 0)
+            {
+                posX -= speed;
+                triangle1.colorFill = '#ffff00';
+            }
+            else if (posX <= 0 && posY > 0)
+            {
+                posY -= speed;
+                triangle1.colorFill = '#00ff00';
+            }
+            for(var i = 0; i < triangle1.length; i++)
+            {
+                triangle1[i].x = posX;
+                triangle1[i].y = posY;
+                triangle1[i].draw(context);
+            }
+        }());
+        for(var i = 0; i< 15; i++)
+        {
+            triangle1[i] = new Triangle;
+            triangle1[i].xLeft = 20 + 30*i;
+            triangle1[i].yLeft = 20 + 30*i;
+            triangle1[i].colorFill = 'rgba(0, 50, 253, 0.2'
+        }
+    };
+</script>
+
+</body>
+</html>
